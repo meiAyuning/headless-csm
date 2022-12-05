@@ -20,7 +20,7 @@ const DataMahasiswa = ({ data }) => {
                     <div className="col col-lg-3" key={id}>
 
                         <div className="container box-shadow">
-                            <Card gambar='me.png' dataMhs={dt} />
+                            <Card gambar='me.jpg' dataMhs={dt} />
                         </div>
 
                     </div>
