@@ -39,7 +39,8 @@ const DataMahasiswa = ({data}) => {
                         <th>Nama</th>
                         <th>Angkatan</th>
                         <th>Prodi</th>
-                        
+                        <th>History</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,8 +60,17 @@ const DataMahasiswa = ({data}) => {
                                  {mhs.attributes.prodi}
                             </td>
                             <td>
+                                <Link href={
+                                    { pathname : '/admin/mahasiswa/history',
+                                        query : { nim : mhs.attributes.nim}
+                                    }
+                                }>
+                                    <a>History</a>
+                                </Link>
+                            </td>
+                            <td>
                                 <div className="d-flex justify-content-between">
-                                    <Link href={`/admin/mahasiswa/updatemahasiswa?nim=${mhs.nim}
+                                    <Link href={`/admin/mahasiswa/updatemahasiswa?nim=${mhs.attributes.nim}
                                         &nama=${mhs.attributes.nama}&angkatan=${mhs.attributes.angkatan}
                                         &prodi=${mhs.attributes.prodi}`}
                                     >

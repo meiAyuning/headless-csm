@@ -9,7 +9,7 @@ function datamahasiswa({ mahasiswas }) {
     // let hasil
     // { Array.isArray(data) ? hasil = data : hasil = [data] }
 
-    //console.log(hasil)
+    // console.log(mahasiswas)
     return (
         <div>
             <AdminLayout>

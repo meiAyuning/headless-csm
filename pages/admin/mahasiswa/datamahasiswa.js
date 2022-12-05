@@ -14,7 +14,7 @@ function datamahasiswa({ data }) {
             <AdminLayout>
                 <div className="container">
                     <MahasiswaByNim />
-                    <DataMahasiswa data={hasil} />
+                    <DataMahasiswa data={data.data} />
                 </div>
             </AdminLayout>
         </div>
@@ -25,10 +25,10 @@ export async function getServerSideProps({ query }) {
     // Fetch data from external API
     const nim = query.nim
     //const url = `http://localhost:5000/mahasiswa/${nim}`
-    let url = `http://localhost:5000/mahasiswa`
+    let url = `http://localhost:1337/api/mahasiswas`
 
     if (typeof nim === 'string') {
-        url = `http://localhost:5000/mahasiswa/${nim}`
+        url = `http://localhost:1337/api/mahasiswas?filters[nim][$eq]=${nim}`
     }
     //{ nim === undefined ? res = await fetch(url2) : res = await fetch(url) }
 
