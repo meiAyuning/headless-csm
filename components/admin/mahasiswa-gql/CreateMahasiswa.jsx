@@ -76,18 +76,18 @@ const CreateMahasiswa = () => {
                     <h1 className="w-75 text-center">Input Mahasiswa</h1>
                     <div className="w-75">
                         <div className="form-floating">
-                            <input className="form-control mb-2" id="nim" type="text" placeholder="NIM" value={nim} onChange={(e) => setNama(e.target.value)} onBlur={getNimAndProdi} />
+                            <input className="form-control mb-2" id="nim" type="text" placeholder="NIM" value={nim} onChange={(e) => setNim(e.target.value)} onBlur={getNimAndProdi} />
                             <label htmlFor="nim">NIM</label>
                         </div>
 
                         <div className="form-floating">
                             <input className="form-control mb-2" id="nama" type="text" placeholder="nama" value={nama} onChange={(e) => setNama(e.target.value)} />
-                                <label htmlFor="nim">Nama</label>
+                            <label htmlFor="nim">Nama</label>
                         </div>
 
                         <div className="form-floating">
                             <input className="form-control mb-2" id="angkatan" type="text" placeholder="angkatan" value={angkatan} onChange={(e) => setAngkatan(e.target.value)}/>
-                                <label htmlFor="nim">Angkatan</label>
+                            <label htmlFor="nim">Angkatan</label>
                         </div>
 
                         <div className="form-floating">

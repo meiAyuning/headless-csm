@@ -22,9 +22,9 @@ function Ipk({data}) {
     let totalSks = 0;
     let totalNilai = 0
     data.map(dt=>{
-        totalSks += dt.sks
-        const nilai = gradeToNil[dt.nilai]
-        const nxk = nilai * dt.sks
+        totalSks += dt.attributes.matakuliahs.data[0].attributes.sks
+        const nilai = gradeToNil[dt.attributes.nilai]
+        const nxk = nilai * dt.attributes.matakuliahs.data[0].attributes.sks
         totalNilai += nxk
     })
     const _ipk = totalNilai / totalSks
@@ -43,7 +43,7 @@ function Ipk({data}) {
                         <td>
                             Total SKS
                         </td>
-                        <td>
+                        <td className='text text-end'>
                             {totSks}
                         </td>
                     </tr>
@@ -51,15 +51,15 @@ function Ipk({data}) {
                         <td>
                             Total (Nilai x SKS)
                         </td>
-                        <td>
+                        <td className='text text-end'>
                             {totNil}
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            IP
+                            Indeks Prestasi Kumulatif (IPK)
                         </td>
-                        <td>
+                        <td className='text text-end'>
                             {ipk.toFixed(2)}
                         </td>
                     </tr>

@@ -39,6 +39,7 @@ const DataMahasiswa = ({data}) => {
                         <th>Nama</th>
                         <th>Angkatan</th>
                         <th>Prodi</th>
+                        <th>Transkrip</th>
                         <th>History</th>
                         <th>Action</th>
                     </tr>
@@ -57,7 +58,17 @@ const DataMahasiswa = ({data}) => {
                                 {mhs.attributes.angkatan}
                             </td>
                             <td>
-                                 {mhs.attributes.prodi}
+                                {mhs.attributes.prodi}
+                            </td>
+                            <td>
+                                <Link href={{
+                                    pathname:`/admin/mahasiswa-gql/transkrip`, query: { nim: mhs.attributes.nim,
+                                    nama: mhs.attributes.nama,
+                                angkatan: mhs.attributes.angkatan,
+                            prodi: mhs.attributes.prodi }
+                                }}>
+                                    <a>Transkrip</a>
+                                </Link>
                             </td>
                             <td>
                                 <Link href={
@@ -69,30 +80,39 @@ const DataMahasiswa = ({data}) => {
                                 </Link>
                             </td>
                             <td>
-                                <div className="d-flex justify-content-between">
+                                <div className="row">
+                                    <div className="d-flex justify-content-between ps-5 pe-5">
                                     <Link href={`/admin/mahasiswa/updatemahasiswa?nim=${mhs.attributes.nim}
                                         &nama=${mhs.attributes.nama}&angkatan=${mhs.attributes.angkatan}
                                         &prodi=${mhs.attributes.prodi}`}
                                     >
-                                        <a>Edit</a>
+                                        <a>Edit -Rest</a>
                                     </Link>
 
-                                    <Link href={
+                                    {/* <Link href={
                                        { pathname : '/admin/updatemahasiswa', 
                                          query : {nim : mhs.nim, nama : mhs.nama, angkatan : mhs.angkatan, prodi : mhs.prodi}
                                        }
                                         }
                                     >
                                         <a>Edit 2</a>
-                                    </Link>
+                                    </Link> */}
 
                                     <button 
                                         className = "btn btn-danger btn-sm"
                                         value = {mhs.nim}
                                         onClick={(e)=>hapusMahasiswa(e.target.value)}
                                     >
-                                            Hapus
+                                            Hapus -Rest
                                     </button>
+                                </div>
+                                </div>
+                                <div className="row mt-2">
+                                    <div className="d-flex justify-content-between ps-5 pe-5">
+                                        <Link href={`/admin/mahasiswa-gql/updatemahasiswa?id=${mhs.id}&nim=&{mhs.attributes.nim}&nama=${mhs.attributes.nama}&angkatan=${mhs.attributes.angkatan}&prodi=${mhs.attributes.prodi}`}>
+                                            <a>Edit-GQL</a>
+                                        </Link>
+                                    </div>
                                 </div>
                             </td>
                     </tr>
